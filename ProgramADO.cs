@@ -19,12 +19,11 @@ namespace LinqToExcel
             //Set Connection String of your Database
             SqlConnection Connection = new SqlConnection(@"server=SQLEXPRESS; database=db-LinqToExcel; integrated security = true");
             Connection.Open();
-            string Script = "";
 
             Console.WriteLine("Processing...");
             foreach (Person person in Persons)
             {
-                Script = @"INSERT INTO Person(Name, Age) values ('" + person.Name + "'," + person.Age + ")";
+                String Script = @"INSERT INTO Person(Name, Age) values ('" + person.Name + "'," + person.Age + ")";
                 SqlCommand Command = new SqlCommand(Script, Connection);
                 Command.ExecuteNonQuery();
             }
